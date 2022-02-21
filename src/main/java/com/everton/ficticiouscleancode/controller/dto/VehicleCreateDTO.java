@@ -1,23 +1,14 @@
-package com.everton.ficticiouscleancode.model;
+package com.everton.ficticiouscleancode.controller.dto;
 
+import com.everton.ficticiouscleancode.model.Vehicle;
 import com.sun.istack.NotNull;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
-import java.util.Objects;
 
-@Entity
-public class Vehicle {
+public class VehicleCreateDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotNull
-    @NotEmpty
+    @NotBlank
     private String name;
     @NotNull
     private String manufacturer;
@@ -30,25 +21,17 @@ public class Vehicle {
     @NotNull
     private Double consumePerKmInRoad;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        var vehicle = (Vehicle) o;
-        return Objects.equals(id, vehicle.id) && Objects.equals(name, vehicle.name) && Objects.equals(manufacturer, vehicle.manufacturer) && Objects.equals(model, vehicle.model) && Objects.equals(manufacturingDate, vehicle.manufacturingDate) && Objects.equals(consumePerKmInCity, vehicle.consumePerKmInCity) && Objects.equals(consumePerKmInRoad, vehicle.consumePerKmInRoad);
+    public VehicleCreateDTO(){
+
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, manufacturer, model, manufacturingDate, consumePerKmInCity, consumePerKmInRoad);
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public VehicleCreateDTO(Vehicle vehicle) {
+        this.name = vehicle.getName();
+        this.manufacturer = vehicle.getManufacturer();
+        this.model = vehicle.getModel();
+        this.manufacturingDate = vehicle.getManufacturingDate();
+        this.consumePerKmInCity = vehicle.getConsumePerKmInCity();
+        this.consumePerKmInRoad = vehicle.getConsumePerKmInRoad();
     }
 
     public String getName() {
