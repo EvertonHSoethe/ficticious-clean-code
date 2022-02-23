@@ -2,7 +2,7 @@ package com.everton.ficticiouscleancode.controller.dto;
 
 import com.everton.ficticiouscleancode.model.Vehicle;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class VehicleResponseDTO {
 
@@ -14,7 +14,7 @@ public class VehicleResponseDTO {
 
     private String model;
 
-    private Date manufacturingDate;
+    private LocalDateTime manufacturingDate;
 
     private Double consumePerKmInCity;
 
@@ -67,11 +67,11 @@ public class VehicleResponseDTO {
         this.model = model;
     }
 
-    public Date getManufacturingDate() {
+    public LocalDateTime getManufacturingDate() {
         return manufacturingDate;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
+    public void setManufacturingDate(LocalDateTime manufacturingDate) {
         this.manufacturingDate = manufacturingDate;
     }
 

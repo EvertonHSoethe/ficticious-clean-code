@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -24,7 +24,7 @@ public class Vehicle {
     @NotNull
     private String model;
     @NotNull
-    private Date manufacturingDate;
+    private LocalDateTime manufacturingDate;
     @NotNull
     private Double consumePerKmInCity;
     @NotNull
@@ -75,11 +75,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public Date getManufacturingDate() {
+    public LocalDateTime getManufacturingDate() {
         return manufacturingDate;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
+    public void setManufacturingDate(LocalDateTime manufacturingDate) {
         this.manufacturingDate = manufacturingDate;
     }
 

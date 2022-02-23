@@ -4,7 +4,8 @@ import com.everton.ficticiouscleancode.model.Vehicle;
 import com.sun.istack.NotNull;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
+import java.text.ParseException;
+import java.time.LocalDateTime;
 
 public class VehicleCreateDTO {
 
@@ -15,7 +16,7 @@ public class VehicleCreateDTO {
     @NotNull
     private String model;
     @NotNull
-    private Date manufacturingDate;
+    private LocalDateTime manufacturingDate;
     @NotNull
     private Double consumePerKmInCity;
     @NotNull
@@ -58,11 +59,11 @@ public class VehicleCreateDTO {
         this.model = model;
     }
 
-    public Date getManufacturingDate() {
+    public LocalDateTime getManufacturingDate() {
         return manufacturingDate;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
+    public void setManufacturingDate(LocalDateTime manufacturingDate) {
         this.manufacturingDate = manufacturingDate;
     }
 
@@ -80,5 +81,28 @@ public class VehicleCreateDTO {
 
     public void setConsumePerKmInRoad(Double consumePerKmInRoad) {
         this.consumePerKmInRoad = consumePerKmInRoad;
+    }
+
+    @Override
+    public String toString() {
+        return "VehicleCreateDTO{" +
+                "name='" + name + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", manufacturingDate=" + manufacturingDate +
+                ", consumePerKmInCity=" + consumePerKmInCity +
+                ", consumePerKmInRoad=" + consumePerKmInRoad +
+                '}';
+    }
+
+    public String toJson() throws ParseException {
+        return "{" +
+                "\"name\":\"" + name + "\"" +
+                ", \"manufacturer\":\"" + manufacturer + "\"" +
+                ", \"model\":\"" + model + "\"" +
+                ", \"manufacturingDate\":\"" + manufacturingDate + "\"" +
+                ", \"consumePerKmInCity\":\"" + consumePerKmInCity + "\"" +
+                ", \"consumePerKmInRoad\":\"" + consumePerKmInRoad + "\"" +
+                '}';
     }
 }
