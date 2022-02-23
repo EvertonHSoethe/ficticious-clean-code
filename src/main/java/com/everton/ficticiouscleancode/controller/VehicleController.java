@@ -24,9 +24,17 @@ public class VehicleController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<VehicleResponseDTO> costCalculation(@RequestBody @Valid VehicleCreateDTO vehicle, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<VehicleResponseDTO> createVehicle(@RequestBody @Valid VehicleCreateDTO vehicle, UriComponentsBuilder uriBuilder) {
         var vehicleSaved = vehicleService.save(VehicleMapper.createDTOToVehicle(vehicle));
         var uri = uriBuilder.path("/vehicle/{id}").buildAndExpand(vehicleSaved.getId()).toUri();
         return ResponseEntity.created(uri).body(VehicleMapper.entityToResponseDTO(vehicleSaved));
     }
+
+//    @PostMapping
+//    @Transactional
+//    @RequestMapping("/test")
+//    public ResponseEntity<VehicleResponseDTO> createVehicleTest(@RequestBody @Valid VehicleCreateDTO vehicle) {
+//        var vehicleSaved = vehicleService.save(VehicleMapper.createDTOToVehicle(vehicle));
+//        return ResponseEntity.ok(VehicleMapper.entityToResponseDTO(vehicleSaved));
+//    }
 }

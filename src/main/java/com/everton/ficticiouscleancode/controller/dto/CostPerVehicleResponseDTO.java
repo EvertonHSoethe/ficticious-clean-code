@@ -1,13 +1,13 @@
 package com.everton.ficticiouscleancode.controller.dto;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class CostPerVehicleResponseDTO {
 
     private String name;
     private String manufacturer;
     private String model;
-    private Date manufacturingDate;
+    private LocalDateTime manufacturingDate;
     private Double consumedFuel;
     private Double totalFuelCost;
 
@@ -15,7 +15,7 @@ public class CostPerVehicleResponseDTO {
 
     }
 
-    public CostPerVehicleResponseDTO(String name, String manufacturer, String model, Date manufacturingDate, Double consumedFuel, Double totalFuelCost) {
+    public CostPerVehicleResponseDTO(String name, String manufacturer, String model, LocalDateTime manufacturingDate, Double consumedFuel, Double totalFuelCost) {
         this.name = name;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -48,11 +48,11 @@ public class CostPerVehicleResponseDTO {
         this.model = model;
     }
 
-    public Date getManufacturingDate() {
+    public LocalDateTime getManufacturingDate() {
         return manufacturingDate;
     }
 
-    public void setManufacturingDate(Date manufacturingDate) {
+    public void setManufacturingDate(LocalDateTime manufacturingDate) {
         this.manufacturingDate = manufacturingDate;
     }
 
